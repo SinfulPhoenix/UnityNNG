@@ -9,16 +9,18 @@ public class Player : MonoBehaviour
     [SerializeField] //show variable below so that it can be edited
     private float _playerHealth = 100f;
     [SerializeField]
-    private float _currentPlayerHeath; //cache health for changes
+    private float _currentPlayerHealth; //cache health globally
 
     [SerializeField]
     private float _playerDefaultSpeed = 7f;
     [SerializeField]
-    private float _currentPlayerSpeed; //cache speed for changes
+    private float _currentPlayerSpeed; //cache speed globally
 
-    Vector3 _playerDirection; //cache player direction
-    Vector3 _playerPosition; //cache player position
-    Vector2 _playerInput; //cache input
+    Vector3 _playerDirection; //cache player direction globally
+    Vector3 _playerPosition; //cache player position globally
+    Vector2 _playerInput; //cache input globally
+
+    private Animator _playerAnimation; //cache animator component globally
 
 
 
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         //smell my funky farts
+        OnStart();
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class Player : MonoBehaviour
     public void OnStart()
     {
         _currentPlayerSpeed = _playerDefaultSpeed; //setting _currentPlayerSpeed to _playerDefaultSpeed
+        _playerAnimation = GetComponent<Animator>(); //cache animator component
     }
 
     public void OnDirection(InputAction.CallbackContext context)
@@ -46,7 +50,17 @@ public class Player : MonoBehaviour
     }
     public void OnMove()
     {
-        transform.Translate(_playerDirection * _currentPlayerSpeed * Time.deltaTime); //move in direction based on direction and speed
+        if (_playerInput != Vector2.zero) {
+            transform.Translate(_playerDirection * _currentPlayerSpeed * Time.deltaTime); //move in direction based on direction and speed\
+
+            _playerAnimation.SetFloat("Move X", _playerInput.x); //set blend tree Move X to calculate based on input on X axis
+            _playerAnimation.SetFloat("Move Y", _playerInput.y); //the above but on the Y
+
+            _playerAnimation.SetBool("Walking", true); //set walking bool to true
+        } else
+        {
+            _playerAnimation.SetBool("Walking", false);
+        }
     }
 
 }
