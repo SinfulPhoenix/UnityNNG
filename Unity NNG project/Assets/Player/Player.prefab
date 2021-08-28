@@ -50,8 +50,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealth: 100
   _currentPlayerHealth: 0
+  _playerMaxSpeed: 0
   _playerDefaultSpeed: 7
   _currentPlayerSpeed: 0
+  _playerAcceleration: 3
+  _playerDeceleration: 3
 --- !u!114 &7574594237853931270
 MonoBehaviour:
   m_ObjectHideFlags: 0
