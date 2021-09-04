@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float _maxVelocity = 10f; //speed cap
     [SerializeField] private float _currentVelocity; //rate of velocity based on acceleration
     [SerializeField, Range(0f, 100f)] private float _acceleration = 10f;
-    [SerializeField, Range(0f, 100f)] private float _deceleration = 10f;
+    [SerializeField, Range(0f, 100f)] private float _deceleration = 20f;
 
     [Space]
     [Header("Player Coordinates")]
