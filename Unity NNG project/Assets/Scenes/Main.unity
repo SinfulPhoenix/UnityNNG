@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260010231306854508, guid: d762a94ff8a3eed44a76f8c7d1b6c18c, type: 3}
       propertyPath: _deceleration
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d762a94ff8a3eed44a76f8c7d1b6c18c, type: 3}
