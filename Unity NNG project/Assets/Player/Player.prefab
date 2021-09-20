@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6133729253716312804}
   - component: {fileID: 420537835239477847}
   - component: {fileID: 7105410610351528968}
+  - component: {fileID: 3431999134656240504}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -48,17 +49,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308b923b8636e794884603688a3a0fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
-  desiredVelocity: {x: 0, y: 0, z: 0}
   _maxVelocity: 10
-  _currentVelocity: 0
+  _velocity: 0
+  _currentVelocity: {x: 0, y: 0, z: 0}
+  _desiredVelocity: {x: 0, y: 0, z: 0}
   _acceleration: 10
   _deceleration: 20
-  _directionChange: 0
+  _currentTraction: 0
   _traction: 4
   _tractionTimer: 0.35
-  _playerInput: {x: 0, y: 0}
-  _playerDirection: {x: 0, y: 0, z: 0}
+  _currentInput: {x: 0, y: 0}
+  _currentDirection: {x: 0, y: 0, z: 0}
+  _lastDirection: {x: 0, y: 0, z: 0}
 --- !u!50 &3802339954272830309
 Rigidbody2D:
   serializedVersion: 4
@@ -121,6 +123,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 25fe1997-aa11-486d-93b0-824a31e861ec
     m_ActionName: Grounded/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6813808200305077942}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ddbe023f-9728-482a-a7bb-80a35a5254aa
+    m_ActionName: Combat/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Grounded
@@ -222,3 +240,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.40094703, y: 0.90740395}
   m_EdgeRadius: 0
+--- !u!114 &3431999134656240504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813808200305077942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a8edeca42d8ce4492ad500d58dc972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
